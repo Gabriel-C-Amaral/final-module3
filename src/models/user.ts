@@ -14,13 +14,17 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    reservations: [{
-        type: Types.ObjectId,
-        ref: 'Reservation'
-    }],
     deletedAt: {
         type: Date,
         default: null
+    },
+    isAdministrator: {
+        type: Boolean,
+        required: true
+    },
+    wallet: {
+        type: Number,
+        required: true
     }
 }, {
     timestamps: true
