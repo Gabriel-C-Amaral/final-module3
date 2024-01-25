@@ -1,27 +1,23 @@
 import { InferSchemaType, Schema, Model, model, Types } from "mongoose";
 
 const productSchema = new Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
-    email: {
-        type: String,
+    price: {
+        type: Number,
         required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
     },
     deletedAt: {
         type: Date,
         default: null
     },
-    isAdministrator: {
-        type: Boolean,
+    description: {
+        type: String,
         required: true
     }
+
 }, {
     timestamps: true
 })

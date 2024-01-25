@@ -20,7 +20,8 @@ const userSchema = new Schema({
     },
     isAdministrator: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     wallet: {
         type: Number,
