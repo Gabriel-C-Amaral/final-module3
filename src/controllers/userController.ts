@@ -27,7 +27,10 @@ export const createUser = async (req: Request, res: Response) => {
     }
   };
 
-// 
+
+
+  // Login USER
+
 export const loginUser = async (req: Request, res: Response) => {
   try {
       const { email, password } = req.body;
