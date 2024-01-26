@@ -16,6 +16,10 @@ const productSchema = new Schema({
     description: {
         type: String,
         required: true
+    },
+    imageUrl: { 
+        type: String,
+        required: false 
     }
 
 }, {
@@ -24,4 +28,4 @@ const productSchema = new Schema({
 
 export type Product = InferSchemaType<typeof productSchema>
 
-export const UserModel: Model<Product> = model('User', productSchema)
+export const ProductModel: Model<Product> = model('Product', productSchema)
