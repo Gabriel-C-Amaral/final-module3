@@ -41,6 +41,6 @@ export const getProductById = async (req: Request, res: Response) => {
         res.status(200).json(product);
     } catch (error) {
         
-        res.status(500).json(error);
+        res.status(500).json({ error: "Invalid Product ID" });
     }
 };
