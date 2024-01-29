@@ -9,7 +9,7 @@ OBRIGATORIOS
  --produto
  Cadastro de Produtos (rota PRIVADA - Admin)
  Listar todos os produtos (rota Privada)
- Buscar produtos pro id (rota Privada)
+ Buscar produtos por id (rota Privada)
  
  --negocio
  Enviar joia para usuário (rota Privada - Admin)
