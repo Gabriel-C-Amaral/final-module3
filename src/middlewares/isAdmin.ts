@@ -2,8 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 
 interface RequestWithUser extends Request {
     user?: {
-        userId: string; // or any other properties you have in the user object
-        isAdministrator?: boolean;
+        userId: string;
+        isAdministrator: boolean;
     };
 }
 
