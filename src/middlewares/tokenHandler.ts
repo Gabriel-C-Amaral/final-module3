@@ -23,7 +23,6 @@ export const authenticateToken = (req: RequestWithUser, res: Response, next: Nex
             return res.sendStatus(403); // Invalid token
         }
         req.user = user as UserPayload; // Attach user payload to request
-        console.log(user)
         next();
     });
 };
