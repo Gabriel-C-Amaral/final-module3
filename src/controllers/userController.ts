@@ -48,13 +48,14 @@ export const loginUser = async (req: Request, res: Response) => {
       }
 
       // Generate JWT token
-      const payload = { userId: user._id }; 
+      const payload = { userId: user._id, isAdmin: user.isAdministrator }; 
       const token = jwt.sign(payload, process.env.JWT_SECRET!, { expiresIn: '1h' }); // the "!" its an non-null asssertion to bypass typescript
 
       res.status(200).json({ 
           message: "Login successful", 
           token: token,
-          userId: user._id
+          userId: user._id,
+          isAdmin: user.isAdministrator
       });
   } catch (error) {
       res.status(500).json({ error: "Server error" });
