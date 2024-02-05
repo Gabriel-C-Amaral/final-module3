@@ -3,6 +3,7 @@ import { createUser, loginUser } from '../controllers/userController'
 import { createProduct, getAllProducts, getProductById } from '../controllers/productController';
 import { authenticateToken } from '../middlewares/tokenHandler';
 import isAdminMiddleware from '../middlewares/isAdmin';
+import { storageMiddleware } from '../middlewares/uploadImage'; 
 
 export const routes = Router();
 
@@ -17,5 +18,5 @@ routes.get('/product',authenticateToken, getProductById)
 
 
 //Private Route - ADMIN
-routes.post('/newproduct', authenticateToken, isAdminMiddleware, createProduct)
+routes.post('/newproduct', authenticateToken, isAdminMiddleware, storageMiddleware.single("photo"), createProduct)
 

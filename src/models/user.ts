@@ -26,6 +26,10 @@ const userSchema = new Schema({
     wallet: {
         type: Number,
         default: 0
+    },
+    image: { 
+        type: String,
+        required: false 
     }
 }, {
     timestamps: true
