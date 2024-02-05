@@ -18,5 +18,5 @@ routes.get('/product',authenticateToken, getProductById)
 
 
 //Private Route - ADMIN
-routes.post('/newproduct', authenticateToken, isAdminMiddleware, storageMiddleware.single("photo"), createProduct)
+routes.post('/newproduct', authenticateToken, isAdminMiddleware, storageMiddleware.single("image"), createProduct)
 

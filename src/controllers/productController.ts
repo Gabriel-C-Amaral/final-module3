@@ -6,7 +6,13 @@ export const createProduct = async (req: Request, res: Response) => {
   
     try {
       const newProduct: Product = req.body; // Get product data from the request body  
-      
+      const imagePath = req.file ? req.file.filename : null;
+
+      const newProductData = {
+        ...req.body,
+        image: imagePath, // This adds the image filename to the new product data
+      };
+
       const user = new ProductModel(newProduct); 
       await user.save(); 
       res.status(201).json(user); // Respond with the created product

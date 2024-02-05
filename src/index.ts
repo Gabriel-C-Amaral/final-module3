@@ -10,6 +10,9 @@ MongoConnection.initialize()
 const app = express()
 app.use(express.json())
 
+app.use(express.static("www"))
+
+
 //rota
 app.use(routes)
 
