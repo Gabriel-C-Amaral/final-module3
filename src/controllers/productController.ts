@@ -5,17 +5,16 @@ import { Product, ProductModel } from "../models/product";
 export const createProduct = async (req: Request, res: Response) => {
   
     try {
-      const newProduct: Product = req.body; // Get product data from the request body  
-      const imagePath = req.file ? req.file.filename : null;
+      const imagePath = req.file ? req.file.filename : undefined ;
 
       const newProductData = {
         ...req.body,
         image: imagePath, // This adds the image filename to the new product data
       };
 
-      const user = new ProductModel(newProduct); 
-      await user.save(); 
-      res.status(201).json(user); // Respond with the created product
+      const product = new ProductModel(newProductData); 
+      await product.save(); 
+      res.status(201).json(product); // Respond with the created product
     } catch (error) {
       res.status(500).json({ error: "Could not create product" });
     }

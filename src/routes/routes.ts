@@ -9,7 +9,7 @@ export const routes = Router();
 
 
 //Open Routes
-routes.post('/user', createUser)
+routes.post('/user', storageMiddleware.single("image"), createUser)
 routes.post('/login', loginUser)
 
 //Private Route

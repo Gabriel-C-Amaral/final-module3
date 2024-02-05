@@ -10,16 +10,24 @@ import jwt from 'jsonwebtoken';
 export const createUser = async (req: Request, res: Response) => {
   
     try {
-      const newUser: User = req.body; // Get user data from the request body
+      const imagePath = req.file ? req.file.filename : undefined ;
+
+      // const newUser: User = req.body; // Get user data from the request body
+      const newProductData = {
+        ...req.body,
+        image: imagePath, // This adds the image filename to the new product data
+      };
+
+
   
       // Check if a user with the same email already exists
-      const existingUser = await UserModel.findOne({ email: newUser.email });
+      const existingUser = await UserModel.findOne({ email: newProductData.email });
       if (existingUser) {
         return res.status(400).json({ error: "Email already exists" });
       }
       req.body.password = await bcrypt.hash(req.body.password, 10) // Encrypt password using bcrypt
   
-      const user = new UserModel(newUser); 
+      const user = new UserModel(newProductData); 
       await user.save(); 
       res.status(201).json(user); // Respond with the created user
     } catch (error) {
