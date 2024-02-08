@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { createUser, loginUser } from '../controllers/userController'
-import { createProduct, getAllProducts, getProductById } from '../controllers/productController';
+import { createProduct, editProduct, getAllProducts, getProductById } from '../controllers/productController';
 import { authenticateToken } from '../middlewares/tokenHandler';
 import isAdminMiddleware from '../middlewares/isAdmin';
 import { storageMiddleware } from '../middlewares/uploadImage'; 
@@ -23,4 +23,5 @@ routes.post('/redeemProduct', authenticateToken, redeemProduct)
 //Private Route - ADMIN
 routes.post('/newproduct', authenticateToken, isAdminMiddleware, storageMiddleware.single("image"), createProduct)
 routes.post('/addjewel', authenticateToken, isAdminMiddleware, addToUserWallet)
+routes.put('/editProduct', authenticateToken, isAdminMiddleware, storageMiddleware.single("image"), editProduct)
 
