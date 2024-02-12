@@ -1,8 +1,10 @@
 // import productRepository from '../repository/productRepository'
 const productRepository = require('../repository/productRepository')
+import { CreateProductDTO } from "../dtos/createProductDTO"
 
 
- const createProduct = async (product: any) => {
+
+ const createProduct = async (product: CreateProductDTO) => {
 
      const newProduct = await productRepository.createProduct(product)
      if (!newProduct) {
